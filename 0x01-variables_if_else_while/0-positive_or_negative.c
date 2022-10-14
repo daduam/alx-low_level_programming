@@ -2,7 +2,11 @@
 #include <time.h>
 #include <stdio.h>
 
-/* Entry point */
+/**
+ * main - Entry point
+ *
+ * Return: Always 1
+ */
 int main(void)
 {
 	int n;
