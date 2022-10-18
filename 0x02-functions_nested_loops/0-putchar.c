@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * main - entry point
+ * main - Entry point
  *
- * Return - 0
+ * Return: 0
  */
 int main(void)
 {
-	char *str = "_putchar\n";
 	int i;
+	char *str = "_putchar\n";
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 9; i++)
 	{
 		_putchar(str[i]);
 	}
