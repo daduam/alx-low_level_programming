@@ -8,15 +8,14 @@
  */
 int main(void)
 {
-	long int prev = 1, cur = 2, sum = 0;
+	long int prev = 1, cur = 2, temp, sum = 0;
 
 	while (cur <= 4000000)
 	{
 		if (cur % 2 == 0)
 			sum += cur;
 
-		int temp = prev + cur;
-
+		temp = prev + cur;
 		prev = cur;
 		cur = temp;
 	}
