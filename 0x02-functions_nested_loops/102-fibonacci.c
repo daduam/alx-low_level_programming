@@ -8,16 +8,17 @@
  */
 int main(void)
 {
-	int prev = 1, cur = 2, n = 50;
+	int n = 50;
+	long int prev = 1, cur = 2;
 
-	printf("%d", prev);
+	printf("%ld", prev);
 	n--;
 
 	while (n > 0)
 	{
-		int temp = prev + cur;
+		long int temp = prev + cur;
 
-		printf(", %d", cur);
+		printf(", %ld", cur);
 		prev = cur;
 		cur = temp;
 
