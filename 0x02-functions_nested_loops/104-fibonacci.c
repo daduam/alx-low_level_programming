@@ -10,12 +10,12 @@ int main(void)
 	double prev = 1, cur = 2, temp;
 	int n = 98;
 
-	printf("%.0f", prev);
+	printf("%.0lf", prev);
 	n--;
 
 	while (n > 0)
 	{
-		printf(", %.0f", cur);
+		printf(", %.0lf", cur);
 
 		temp = prev + cur;
 		prev = cur;
