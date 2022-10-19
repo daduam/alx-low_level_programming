@@ -7,14 +7,15 @@
  */
 int main(void)
 {
-	long int prev = 1, cur = 2, temp, n = 98;
+	double prev = 1, cur = 2, temp;
+	int n = 98;
 
-	printf("%ld", prev);
+	printf("%.0f", prev);
 	n--;
 
 	while (n > 0)
 	{
-		printf(", %ld", cur);
+		printf(", %.0f", cur);
 
 		temp = prev + cur;
 		prev = cur;
