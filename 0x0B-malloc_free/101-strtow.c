@@ -38,48 +38,43 @@ int count_words(char *str)
  */
 char **strtow(char *str)
 {
-	int a, i, j, k, n;
+	int word, j, k, n;
 	char **p;
 
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
 
 	n = count_words(str);
-
-	if (n == 0)
-		return (NULL);
-
 	p = malloc(sizeof(char *) * (n + 1));
-
 	if (p == NULL)
 	{
 		free(p);
 		return (NULL);
 	}
 
-	i = 0;
-	for (j = 0; str[j] != '\0'; j++)
+	word = 0;
+	while (*str != '\0')
 	{
-		if (str[j] == ' ')
-			continue;
-
-		for (k = 0; str[j + k] != ' ' && str[j + k] != '\0'; k++)
-			;
-
-		p[i] = malloc(sizeof(char) * k);
-
-		if (p[i] == NULL)
+		if (*str == ' ')
 		{
-			for (a = 0; a <= i; a++)
-				free(p[a]);
-			free(p);
+			str++;
+			continue;
 		}
-
-		for (k = 0; str[j] != ' ' && str[j] != '\0'; j++, k++)
-			p[i][k] = str[j];
-		i++;
+		for (k = 0; str[k] != ' ' && str[k] != '\0'; k++)
+			;
+		p[word] = malloc(sizeof(char) * (k + 1));
+		if (p[word] == NULL)
+		{
+			for (j = 0; j <= word; j++)
+				free(p[j]);
+			free(p);
+			return (NULL);
+		}
+		for (k = 0; *str != ' ' && *str != '\0'; k++)
+			p[word][k] = *str++;
+		word++;
 	}
-	p[i] = NULL;
+	p[word] = NULL;
 
 	return (p);
 }
