@@ -31,7 +31,7 @@ int count_words(char *str)
 }
 
 /**
- * free_grid - frees a 2 dimensional grid.
+ * free_mem - frees a 2 dimensional grid.
  *
  * @grid: int**
  * @height: int
