@@ -13,7 +13,7 @@ int *array_range(int min, int max)
 {
 	int i, n, *p;
 
-	if (max > min)
+	if (min > max)
 		return (NULL);
 
 	n = max - min + 1;
