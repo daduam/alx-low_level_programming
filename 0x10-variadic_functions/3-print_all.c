@@ -48,9 +48,13 @@ void print_str(va_list ap)
 void print_all(const char *const format, ...)
 {
 	va_list ap;
-	int c, i = 0, n = count_tokens(format);
+	int c, n, i = 0;
+
+	if (format == NULL)
+		return;
 
 	va_start(ap, format);
+	n = count_tokens(format);
 	while (format[i] != '\0')
 	{
 		c = format[i++];
