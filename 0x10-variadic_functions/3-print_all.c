@@ -3,6 +3,25 @@
 #include "stdio.h"
 
 /**
+ * count_tokens - Counts format tokens in format string.
+ *
+ * @format: Format string.
+ * Return: Number of tokens in format string.
+ */
+int count_tokens(const char *const format)
+{
+	int i = 0, n = 0, c;
+
+	while ((c = format[i++]) != '\0')
+	{
+		if (c == 'c' || c == 'i' || c == 'f' || c == 's')
+			n++;
+	}
+
+	return (n);
+}
+
+/**
  * print_all - Prints anything.
  *
  * @format: A list of types of arguments passed to the function.
@@ -10,15 +29,10 @@
 void print_all(const char *const format, ...)
 {
 	va_list ap;
-	char c;
-	int i, n;
+	char *s;
+	int c, i, n;
 
-	i = n = 0;
-	while ((c = format[i++]) != '\0')
-	{
-		if (c == 'c' || c == 'i' || c == 'f' || c == 's')
-			n++;
-	}
+	n = count_tokens(format);
 
 	va_start(ap, format);
 	i = 0;
@@ -37,7 +51,11 @@ void print_all(const char *const format, ...)
 			printf("%f", va_arg(ap, double));
 			break;
 		case 's':
-			printf("%s", va_arg(ap, char *));
+			s = va_arg(ap, char *);
+			if (s == NULL)
+				printf("(nil)");
+			else
+				printf("%s", s);
 			break;
 		default:
 			continue;
