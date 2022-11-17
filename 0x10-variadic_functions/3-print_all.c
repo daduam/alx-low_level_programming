@@ -12,10 +12,7 @@ int count_tokens(const char *const format)
 {
 	int i = 0, n = 0, c;
 
-	if (format == NULL)
-		return (0);
-
-	while ((c = format[i++]) != '\0')
+	while (format != NULL && (c = format[i++]) != '\0')
 	{
 		n += c == 'c';
 		n += c == 'i';
