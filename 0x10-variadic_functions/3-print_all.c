@@ -12,6 +12,9 @@ int count_tokens(const char *const format)
 {
 	int i = 0, n = 0, c;
 
+	if (format == NULL)
+		return (0);
+
 	while ((c = format[i++]) != '\0')
 	{
 		n += c == 'c';
@@ -50,12 +53,9 @@ void print_all(const char *const format, ...)
 	va_list ap;
 	int c, n, i = 0;
 
-	if (format == NULL)
-		return;
-
 	va_start(ap, format);
 	n = count_tokens(format);
-	while (format[i] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 		c = format[i++];
 		switch (c)
