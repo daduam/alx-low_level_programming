@@ -24,6 +24,23 @@ int count_tokens(const char *const format)
 }
 
 /**
+ * print_str - Print string from va_list
+ *
+ * @ap: va_list
+ */
+void print_str(va_list ap)
+{
+	char *s = va_arg(ap, char *);
+
+	if (s != NULL)
+	{
+		printf("%s", s);
+		return;
+	}
+	printf("(nil)");
+}
+
+/**
  * print_all - Prints anything.
  *
  * @format: A list of types of arguments passed to the function.
@@ -31,13 +48,9 @@ int count_tokens(const char *const format)
 void print_all(const char *const format, ...)
 {
 	va_list ap;
-	char *s;
-	int c, i, n;
-
-	n = count_tokens(format);
+	int c, i = 0, n = count_tokens(format);
 
 	va_start(ap, format);
-	i = 0;
 	while (format[i] != '\0')
 	{
 		c = format[i++];
@@ -53,11 +66,7 @@ void print_all(const char *const format, ...)
 			printf("%f", va_arg(ap, double));
 			break;
 		case 's':
-			s = va_arg(ap, char *);
-			if (s == NULL)
-				printf("(nil)");
-			else
-				printf("%s", s);
+			print_str(ap);
 			break;
 		default:
 			continue;
