@@ -13,7 +13,12 @@ int count_tokens(const char *const format)
 	int i = 0, n = 0, c;
 
 	while ((c = format[i++]) != '\0')
-		n += (c == 'c' || c == 'i' || c == 'f' || c == 's');
+	{
+		n += c == 'c';
+		n += c == 'i';
+		n += c == 'f';
+		n += c == 's';
+	}
 
 	return (n);
 }
