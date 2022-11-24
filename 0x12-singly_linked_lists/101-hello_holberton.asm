@@ -9,8 +9,8 @@ main:
   push rbp
   mov rbp, rsp
   mov edi, msg
-  mov eax, 0
+  mov eax, 0x0
   call printf
-  mov eax, 0
+  mov eax, 0x0
   pop rbp
   ret
