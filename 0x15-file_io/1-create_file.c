@@ -21,8 +21,6 @@ int create_file(const char *filename, char *text_content)
 		for (nbytes = 0; text_content[nbytes] != '\0'; nbytes++)
 			;
 		nbytes = write(fd, text_content, nbytes);
-		if (nbytes == -1)
-			return (-1);
 	}
 	close(fd);
 	return (1);
