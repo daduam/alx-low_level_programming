@@ -30,6 +30,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new->next = current;
 		if (current)
 			current->prev = new;
+		current = new;
 	}
 	else if (idx == count)
 	{
@@ -43,8 +44,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		for (; idx != 1; idx--)
 			current = current->next;
 		new->next = current->next;
-		current->next = new;
 		new->prev = current;
+		current->next = new;
 		new->next->prev = new;
 	}
 	return (new);
